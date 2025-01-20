@@ -1,6 +1,6 @@
 import { name } from "ejs";
 import{model , Schema} from "mongoose";
-const productSchema = new Schema({
+const productSchema = new Schema({//defien la esyructura de la base de datos con Schema 
     bardcode:{
      require : true ,
      unique : true,

@@ -10,7 +10,7 @@ const app = express();
 //Settings
 app.set('port',process.env.PORT||3000);
 
-//Middlewares
+//Middlewares funciones que se ejeutan en tre la solicitudud y la respuesta en una applicacion 
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));

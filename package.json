@@ -1,5 +1,5 @@
 {
-  "name": "api-groceries-mvc",
+  "name": "groceries",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "dev": "nodemon src/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "uriel maldoonado bernabe",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.10",
