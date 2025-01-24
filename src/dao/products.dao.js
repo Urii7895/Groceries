@@ -8,4 +8,17 @@ productDAO.getAll = async () => {//funcion asyncrona para traer todos los datos 
     //puede ejecutarse mientras puede hacer otras cosas
 };
 
+
+//esta funcion lo que hace es de que trae un dato 
+productDAO.getOne = async (barcode) => {
+    return await Product.findOne({barcode:barcode});
+
+}
+
+//esta funcion se crea e inserta un producto nuevo 
+productDAO.insert=async(product) =>{
+    return await Product.create(product);
+}
+
+
 export default productDAO;  

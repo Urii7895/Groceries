@@ -17,4 +17,46 @@ productsController.getAll=(req,res)=>{// definicion de que metodo
      })
     })
 };
+
+productsController.getOne = (req, res) => {
+    // Obtiene el código de barras desde los parámetros de la solicitud
+    const { barcode } = req.params;
+
+    productDAO.getOne(barcode)
+        .then((product) => {
+            // Devuelve el producto obtenido en formato JSON
+            res.json(product);
+        })
+        .catch((error) => {
+            // Manejo de errores en caso de fallo al obtener el producto
+            res.json({
+                data: {
+                    message: error // Devuelve el mensaje del error
+                }
+            });
+        });
+};
+
+
+
+productsController.insert=(req,res)=>{
+    productDAO.insert(req.body)
+    .then((response)=>{
+        res.json({
+            data:{
+                message: "producto agregado con exito",
+                product:response
+
+            }
+        })
+    })
+    .catch((error)=>{
+        res.json({
+            data:{
+                message:error
+            }
+        })
+    });
+}
+
 export default productsController;//exprotacion por si puede ser usao en otras partes del proyecto 
