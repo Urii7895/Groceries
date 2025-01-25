@@ -59,4 +59,47 @@ productsController.insert=(req,res)=>{
     });
 }
 
+
+productsController.updateOne=(req,res)=>{
+    productDAO.updateOne(req.body, req.params.barcode)
+    .then((result)=>{
+        res.json({
+            data:{
+                message:"producto actualizado correctamente  con exito ",
+                result:result
+            }
+        });
+    })
+    .catch((error)=>{
+    res.json({
+        data:{error:error
+            
+        }});
+    
+    });
+
+}
+
+
+productsController.deleteOne=(req,res)=>{
+    productDAO.deleteOne(req.params.barcode)
+    .then((productDeleted)=>{
+        res.json({
+            data:{
+                message:"product deleted succelfully",
+                product:productDeleted,
+
+            }
+        });
+    })
+    .catch((error)=>{
+        res.json({
+            data:{
+                error:error
+            }
+        });
+    })
+}
+
+
 export default productsController;//exprotacion por si puede ser usao en otras partes del proyecto 

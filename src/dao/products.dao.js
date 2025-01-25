@@ -13,12 +13,29 @@ productDAO.getAll = async () => {//funcion asyncrona para traer todos los datos 
 productDAO.getOne = async (barcode) => {
     return await Product.findOne({barcode:barcode});
 
-}
+};
 
 //esta funcion se crea e inserta un producto nuevo 
 productDAO.insert=async(product) =>{
     return await Product.create(product);
-}
+};
+
+
+
+
+productDAO.updateOne = async(product,barcode) =>{
+    return await Product.findOneAndUpdate({ barcode: barcode }, product, { new: true });
+
+    };
+
+
+productDAO.deleteOne = async(barcode) =>{
+ return await Product.findOneAndDelete({barcode:barcode});
+};
+    
+
+
+
 
 
 export default productDAO;  
