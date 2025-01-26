@@ -1,4 +1,5 @@
 import employedDAO from "../dao/employees.dao.js";
+import employees from "../models/employees.js";
 
 const employedController={};
 
@@ -38,7 +39,7 @@ employedController.getOne = (req, res) => {
 };
 
 employedController.insert= (req,res)=>{
-    employedDAO.inserty(req.body)
+    employedDAO.insert(req.body)
     .then((response)=>{
         res.json({
             data:{
@@ -55,7 +56,41 @@ employedController.insert= (req,res)=>{
     });
 };
 
+employedController.updateOne=(req,res)=>{
+    employedDAO.updateOne(req.body, req.params._id)
+    .then((result)=>{
+        res.json({
+            data:{
+                message:"employes actualizado de manera exitosa",
+                result:result
+            }
+        });
+    })
+    .catch((error)=>{
+        res.json({
+            message:error
+        })
+    });
+};
 
+employedController.deleteOne=(req,res)=>{
+    employedDAO.deleteOne(req.params._id)
+    .then((employeesDeleted)=>{
+        res.json({
+            data:({
+                message:"employed elinado alv",
+                employees:employeesDeleted,
+            })
+        })
+    })
+    .catch((error)=>{
+        res.json({
+            data:{
+                error: error
+            }
+        })
+    })
+}
 
 
 
