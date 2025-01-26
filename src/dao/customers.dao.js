@@ -7,30 +7,24 @@ customersDAO.getAll = async () => {
 
 };
 
-customersDAO.getOne = async (customers)=>{
-    return await  customers.findOne({customers:customers});
-}
+customersDAO.getOne = async (id)=>{
+    return await  customers.findOne({id});
+};
 
-customersDAO.insert = async(customers)=>{
-    return await customers.create(customers);
-}
-
-
-
-customersDAO.upadateOne = async (customers)=>{
-    return await customers.findOneAndUpdate({custommers:customers},customers);
-
-}
-
-customersDAO.deleteOne = async (customers)=>{
-    return await customers.findOneAndDelete({barcode:barcode})
-}
+customersDAO.insert = async(customersData)=>{
+    return await customers.create(customersData);
+};
 
 
 
+customersDAO.updateOne = async (customersData, _id) => {
+    return await customers.findOneAndUpdate({ _id: _id }, customersData, { new: true });
+};
 
 
-
-
+customersDAO.deleteOne = async (_id)=>{
+    return await customers.findOneAndDelete({_id:_id})
+};
 
 export default customersDAO;
+

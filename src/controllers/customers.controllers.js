@@ -21,12 +21,12 @@ customersController.getAll=(req,res)=>{
 };
 
 customersController.getOne = (req,res)=>{
-    const {barcode} = req.params;
+    const {id} = req.params;
 
 
-    customersDAO.getOne(barcode)
+    customersDAO.getOne(id)
     .then((customers)=>{
-        res.json(product);
+        res.json(customers);
     })
     .catch((error)=>{
         res.json({
@@ -35,6 +35,8 @@ customersController.getOne = (req,res)=>{
             }
         });
     });
+
+}
 
 customersController.insert=(req,res)=>{
     customersDAO.insert(req.body)
@@ -55,14 +57,14 @@ customersController.insert=(req,res)=>{
         })
     });
 
-}
+};
 
-customersController.updateOne=(req,res)=>{
-    customersDAO.updateOne(req.bodyparams.barcode )
+customersController.updateOne =(req,res)=>{
+    customersDAO.updateOne(req.body, req.params._id )
     .then((result)=>{
-        res,json({
+        res.json({
             data:{
-                message:"product delete",
+                message:"product acutalizado ",
                 result:result
             }
         })
@@ -74,9 +76,10 @@ customersController.updateOne=(req,res)=>{
             }
         })
     });
-}
+};
+
 customersController.deleteOne=(req,res)=>{
-    customersDAO.deleteOne(req.params.barode)
+    customersDAO.deleteOne(req.params._id)
     .then((customersDeleted)=>{
         res.json({
             data:{
@@ -92,11 +95,7 @@ customersController.deleteOne=(req,res)=>{
             }
         })
     })
-}
+};
 
 
-
-
-
-}
 export default customersController;

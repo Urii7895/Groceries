@@ -5,13 +5,13 @@ const customersSchema = new Schema({
     customers_number: {
         require: true,
         unique :true,
-        type :String ,
+        type :Number ,
     },
     name : String,
     lastname:String,
     age: Number,
     email:String ,
-    phone:String ,
+    phone:Number ,
 },{
     versionKey :false,
     timestamps : true,
