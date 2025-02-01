@@ -15,6 +15,9 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
+ // Ajusta la ruta si tus vistas están en otro directorio
+
+
 //Routes
 app.use('/groceries/products', productsRouter)
 app.use('/groceries/employees', employedRouter)
