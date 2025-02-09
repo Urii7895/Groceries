@@ -11,11 +11,7 @@ router.post('/insert',productsController.insert);
 
 router.post('/updateOne/:barcode',productsController.updateOne);
 
-router.get('/deleteOne/:barcode', productsController.deleteOne);
-
-
-
-
+router.delete('/deleteOne/:barcode', productsController.deleteOne);
 
 
 

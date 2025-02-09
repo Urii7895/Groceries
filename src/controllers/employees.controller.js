@@ -88,9 +88,9 @@ employedController.deleteOne=(req,res)=>{
             data:{
                 error: error
             }
-        })
-    })
-}
+        });
+    });
+};
 
 
 
